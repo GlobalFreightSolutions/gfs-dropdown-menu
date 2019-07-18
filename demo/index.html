@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <title>gfs-dropdown-menu demo</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+        <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+        <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+        <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+        <link rel="import" href="../gfs-dropdown-menu.html">
+
+        <style is="custom-style" include="demo-pages-shared-styles"></style>
+    </head>
+    <body>
+        <div class="vertical-section-container centered">
+            <h3>gfs-dropdown-menu demo</h3>
+
+            <gfs-dropdown-menu id="myMenu" icon="expand-more" label="Static content">
+                <a href="#"><iron-icon icon="social:person"></iron-icon>Account Settings</a>
+                <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
+                <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
+            </gfs-dropdown-menu>
+
+            <gfs-dropdown-menu id="myJsonMenu" icon="expand-more" label="Build with json"
+                        json-menu='[{"name": "Cloud Login", "icon":"cloud"}, {"name": "Help", "icon":"help"}, {"name": "Report a bug", "icon":"bug-report"}]'>
+            </gfs-dropdown-menu>
+
+            <gfs-dropdown-menu id="onlyiconMenu" icon="menu">
+                    <a href="#"><iron-icon icon="social:person"></iron-icon>Account Settings</a>
+                    <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
+                    <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
+            </gfs-dropdown-menu>
+        </div>
+    </body>
+</html>
