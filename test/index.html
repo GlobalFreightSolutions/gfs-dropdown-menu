@@ -3,16 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-        <title>gfs-button tests</title>
-        <script src="../../web-component-tester/browser.js"></script>
+        <title>gfs-dropdown-menu tests</title>
+        <script src="../node_modules/wct-browser-legacy/browser.js"></script>
     </head>
     <body>
         <script>
             WCT.loadSuites([
-                // Load test suite, using shadydom
-                'gfs-dialog.html?wc-shadydom=true&wc-ce=true',
-                // Load test suite, using native shadow dom:
-                'gfs-dialog.html?dom=shadow'
+                'gfs-dropdown-menu.html?wc-shadydom=true&wc-ce=true',
+                'gfs-dropdown-menu.html'
             ]);
         </script>
     </body>

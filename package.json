@@ -12,21 +12,24 @@
     },
     "homepage": "https://developer.gfsdeliver.com/",
     "name": "@gfsdeliver/gfs-dropdown-menu",
-    "version": "2.0.0-preview.1",
+    "version": "2.0.0-preview.2",
     "main": "gfs-dropdown-menu",
     "author": "Global Freight Solutions",
     "license": "Apache-2.0",
     "dependencies": {
         "@polymer/polymer": "^3.0.0",
-        "@polymer/iron-flex-layout": "^3.0.0"
+        "@polymer/iron-flex-layout": "^3.0.0",
+        "@gfsdelivery/gfs-styles": "^2.0.0-preview.1"
     },
     "devDependencies": {
-        "@polymer/neon-animation": "^3.0.0",
+        "wct-browser-legacy": "^1.0.0",
         "@polymer/iron-test-helpers": "^3.0.0",
-        "@polymer/paper-dialog-behavior": "^3.0.0",
         "@polymer/iron-component-page": "^4.0.0",
         "@polymer/iron-demo-helpers": "^3.0.0",
-        "wct-browser-legacy": "^1.0.1",
+        "@polymer/iron-icon": "^3.0.0-pre.26",
+        "@polymer/iron-icons": "^3.0.0-pre.26",
+        "@polymer/neon-animation": "^3.0.0",
+        "@polymer/test-fixture": "^4.0.1",
         "@webcomponents/webcomponentsjs": "^2.0.0"
     }
 }

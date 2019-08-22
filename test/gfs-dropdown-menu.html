@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>gfs-listbox basic tests</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+        <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+    </head>
+
+    <body>
+        <test-fixture id="dropdownMenu">
+            <template>
+                <gfs-dropdown-menu id="menu" icon="expand-more" label="Static content">
+                    <a href="#">Account Settings</a>
+                    <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
+                    <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
+                </gfs-dropdown-menu>
+            </template>
+        </test-fixture>
+
+        <test-fixture id="dropdownMenuOpened">
+            <template>
+                <gfs-dropdown-menu label="Open Menu" opened>
+                    <a href="#">Account Settings</a>
+                    <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
+                    <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
+                </gfs-dropdown-menu>
+            </template>
+        </test-fixture>
+
+        <script type="module">
+            // import '@polymer/iron-test-helpers/mock-interactions.js';
+            // import { Base } from '@polymer/polymer/polymer-legacy.js';
+            // import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
+            import '../gfs-dropdown-menu.js';
+
+            // function runAfterOpen(dropdownMenu, callback) {
+            //     dropdownMenu.$.gfsDropdown.addEventListener(
+            //         'tap', () => {
+            //             Base.async(callback, 1);
+            //         }
+            //     );
+            //     MockInteractions.tap(dropdownMenu);
+            // }
+
+            suite('<gfs-dropdown-menu>', () => {
+                var dropdownMenu;
+                var content;
+
+                setup(() => {
+
+                    dropdownMenu = fixture('dropdownMenu');
+                    // content = dom(dropdownMenu).querySelector('#ddBox');
+                });
+
+                test('instantiating the element works', () => {
+                    expect(dropdownMenu).to.be.ok;
+                });
+
+                // test('opens when tapped', (done) => {
+                //     debugger
+                //     runAfterOpen(dropdownMenu, () => {
+                //         debugger
+                //         expect(dropdownMenu.opened).to.be.equal(true);
+                //         done();
+                //     });
+
+                //     expect(dropdownMenu.opened).to.be.equal(true);
+                // });
+
+                suite('menu is opened', () => {
+                    setup(() => {
+                        dropdownMenu = fixture('dropdownMenuOpened');
+                    });
+
+                    test('menu is opened', () => {
+                        expect(dropdownMenu.opened).to.be.equal(true);
+                    });
+                });
+
+
+            });
+        </script>
+    </body>
+</html>

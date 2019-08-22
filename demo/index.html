@@ -4,33 +4,50 @@
         <title>gfs-dropdown-menu demo</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-        <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+        <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2.0.0/webcomponents-loader.js"></script>
+        <script type="module">
+            import '@polymer/iron-demo-helpers/demo-snippet.js';
+            import '@polymer/iron-demo-helpers/demo-pages-shared-styles.js';
+            import '@polymer/iron-icons/iron-icons.js';
+            import '../gfs-dropdown-menu.js';
+            import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 
-        <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-        <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-        <link rel="import" href="../gfs-dropdown-menu.html">
-
-        <style is="custom-style" include="demo-pages-shared-styles"></style>
+            const template = html
+                `<custom-style>
+                    <style is="custom-style" include="demo-pages-shared-styles"></style>
+                </custom-style>`;
+            document.body.appendChild(template.content);
+        </script>
     </head>
     <body>
-        <div class="vertical-section-container centered">
-            <h3>gfs-dropdown-menu demo</h3>
+        <div class="vertical-section-container centered"></div>
+            <demo-snippet>
+                <template>
+                    <gfs-dropdown-menu id="myMenu" icon="expand-more" label="Static content">
+                        <a href="#">Account Settings</a>
+                        <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
+                        <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
+                    </gfs-dropdown-menu>
+                </template>
+            </demo-snippet>
 
-            <gfs-dropdown-menu id="myMenu" icon="expand-more" label="Static content">
-                <a href="#"><iron-icon icon="social:person"></iron-icon>Account Settings</a>
-                <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
-                <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
-            </gfs-dropdown-menu>
+            <demo-snippet>
+                <template>
+                    <gfs-dropdown-menu id="myJsonMenu" icon="expand-more" label="Build with json"
+                        json-menu='[{"name": "Cloud Login", "icon":"cloud", "link": "#1"}, {"name": "Help", "icon":"help", "link": "#2"}, {"name": "Report a bug", "icon":"bug-report", "link": "#3"}]'>
+                    </gfs-dropdown-menu>
+                </template>
+            </demo-snippet>
 
-            <gfs-dropdown-menu id="myJsonMenu" icon="expand-more" label="Build with json"
-                        json-menu='[{"name": "Cloud Login", "icon":"cloud"}, {"name": "Help", "icon":"help"}, {"name": "Report a bug", "icon":"bug-report"}]'>
-            </gfs-dropdown-menu>
-
-            <gfs-dropdown-menu id="onlyiconMenu" icon="menu">
-                    <a href="#"><iron-icon icon="social:person"></iron-icon>Account Settings</a>
-                    <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
-                    <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
-            </gfs-dropdown-menu>
+            <demo-snippet>
+                <template>
+                    <gfs-dropdown-menu id="onlyiconMenu" icon="menu">
+                        <a href="#">Account Settings</a>
+                        <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
+                        <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
+                    </gfs-dropdown-menu>
+                </template>
+            </demo-snippet>
         </div>
     </body>
 </html>

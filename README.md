@@ -1,32 +1,56 @@
-## Installation
+The `gfs-dropdown-menu` widget is used to create dropdown menus.
 
+
+### Install
+
+```bash
+$ npm i --save '@gfsdeliver/gfs-dropdown-menu
+```
+
+### Import In a HTML file:
+
+```html
+<html>
+    <head>
+        <script type="module">
+            import '@gfsdeliver/gfs-dropdown-menu/gfs-dropdown-menu.js';
+        </script>
+    </head>
+    <body>
+        <gfs-dropdown-menu id="myMenu" icon="expand-more" label="Static content">
+            <a href="#">Account Settings</a>
+            <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
+            <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
+        </gfs-dropdown-menu>
+    </body>
+</html>
+```
+
+### In a Polymer 3 element
+```js
+import { PolymerElement, html } from '@polymer/polymer';
+import '@gfsdeliver/gfs-dropdown-menu/gfs-dropdown-menu.js';
+
+class CustomElement extends PolymerElement {
+    static get template() {
+        return html`
+            <gfs-dropdown-menu id="myMenu" icon="expand-more" label="Static content">
+                <a href="#">Account Settings</a>
+                <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
+                <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
+            </gfs-dropdown-menu>
+        `;
+    }
+}
+customElements.define('custom-element', CustomElement);
+```
 
 ## Properties
 Property | Description
 ---------|-------------
 label    | Top level menu text
 icon     | Adds an icon next to the label
-jsonMenu | buids the dropdown menu from a json
-
-## Examples
-
-```html
-<gfs-dropdown-menu id="myMenu" icon="expand-more"
-                    label="Static content">
-                    <a href="#"><iron-icon icon="social:person"></iron-icon>Account Settings</a>
-                    <a href="#"><iron-icon icon="warning"></iron-icon>Notifications</a>
-                    <a href="#"><iron-icon icon="exit-to-app"></iron-icon>Sign out</a>
-</gfs-dropdown-menu>
-```
-
-------------------------------------------------------------------------------------------------------------------
-
-```html
-<gfs-dropdown-menu id="myJsonMenu" icon="expand-more"
-                    label="Build with json"
-                    full-menu='[{"name": "Cloud Login", "icon":"cloud"}, {"name": "Help", "icon":"help"}, {"name": "Report a bug", "icon":"bug-report"}]'>
-</gfs-dropdown-menu>
-```
+jsonMenu | buids the dropdown menu from a json file
 
 ## Styling
 Custom property | Description | Default
@@ -40,3 +64,7 @@ Custom property | Description | Default
 --gfs-dropdown-menu-arrow | color sould be same a above, adds a triangle on top of the opened menu | `var(--gfs-primary-color)`
 --gfs-dropdown-border-b | adds a bottom border on each menu item on list | `1px solid #eef1f6`
 --gfs-dropdown-item-hover | hover menu background color | `var(--light-grey-color)`
+
+## License
+
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html)

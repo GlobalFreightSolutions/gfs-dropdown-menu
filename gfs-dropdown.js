@@ -1,69 +1,17 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { afterNextRender } from '@polymer/polymer/lib/utils/render-status.js';
 import { GestureEventListeners } from '@polymer/polymer/lib/mixins/gesture-event-listeners.js';
+import './gfs-dropdown-styles.js';
 
-const $_documentContainer = document.createElement('template');
-
-$_documentContainer.innerHTML = `<custom-style>
-    <style>
-        html {
-            --gfs-dropdown-border-b: 1px solid #eef1f6;
-            --gfs-dropdown-item-hover: var(--light-grey);
-            --gfs-dropdown-border-radius: 0;
-        }
-    </style>
-</custom-style>
-
-<dom-module id="gfs-dropdown">
-    <template strip-whitespace="">
-        <style include="gfs-styles">
-            :host {
-                display: block;
-            }
-
-            :host ::slotted(*) {
-                color: #626060;
-                border-bottom: var(--gfs-dropdown-border-b);
-                width: 100%;
-                padding: 10px;
-                text-decoration: none;
-                cursor: pointer;
-                position: relative;
-                border-radius: var(--gfs-dropdown-border-radius);
-                box-sizing: border-box;
-                transition: all .3s ease-in-out;
-            }
-
-                :host ::slotted(:last-child) {
-                    margin: 0 0 5px;
-                    border-bottom: none;
-                }
-
-                :host ::slotted(a:last-child) {
-                    margin: 0 0 5px;
-                    border-bottom: none;
-                }
-
-                :host ::slotted(*:hover) {
-                    background: var(--gfs-dropdown-item-hover);
-                }
-
-
-            /* :host[opened] {
-                background: var(--light-grey);
-                border-radius: var(--border-radius);
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-            } */
-
-        </style>
-
-        <slot></slot>
-    </template>
-</dom-module>`;
-
-document.head.appendChild($_documentContainer.content);
 
 class GfsDropDown extends GestureEventListeners(PolymerElement) {
+    static get template() {
+        return html`
+            <style include="gfs-dropdown-styles"></style>
+
+            <slot></slot>
+        `;
+    }
         static get is() {
             return 'gfs-dropdown';
         }
@@ -101,16 +49,13 @@ class GfsDropDown extends GestureEventListeners(PolymerElement) {
 
         open() {
             this.opened = true;
-            console.log("gfs-dropdown open() " , this.opened);
         }
 
         close() {
             this.opened = false;
-            console.log("gfs-dropdown close() " , this.opened);
         }
 
         _openedChanged(opened) {
-            console.log('_openedChanged ', opened);
             this._horizontallyBound(document.body, this);
 
             if (opened) {
