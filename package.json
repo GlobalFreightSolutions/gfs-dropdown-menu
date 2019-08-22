@@ -19,7 +19,7 @@
     "dependencies": {
         "@polymer/polymer": "^3.0.0",
         "@polymer/iron-flex-layout": "^3.0.0",
-        "@gfsdelivery/gfs-styles": "^2.0.0-preview.1"
+        "@gfsdeliver/gfs-styles": "^2.0.0-preview.1"
     },
     "devDependencies": {
         "wct-browser-legacy": "^1.0.0",
