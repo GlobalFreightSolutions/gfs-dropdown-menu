@@ -10,10 +10,27 @@ class GfsDropDownMenu extends GestureEventListeners(PolymerElement) {
             <style include="gfs-dropdown-menu-styles"></style>
 
             <div id="gfsDropdown" class="trigger" on-tap="_toggle">
-                {{label}}
-                <dom-if if="{{icon}}">
+                <dom-if if="{{left}}">
                     <template>
-                        <iron-icon icon="{{icon}}"></iron-icon>
+                        <dom-if if="{{icon}}">
+                            <template>
+                                <iron-icon icon="{{icon}}"></iron-icon>
+                            </template>
+                        </dom-if>
+
+                        {{label}}
+                    </template>
+                </dom-if>
+
+                <dom-if if="{{!left}}">
+                    <template>
+                        {{label}}
+
+                        <dom-if if="{{icon}}">
+                            <template>
+                                <iron-icon icon="{{icon}}"></iron-icon>
+                            </template>
+                        </dom-if>
                     </template>
                 </dom-if>
             </div>
@@ -44,6 +61,15 @@ class GfsDropDownMenu extends GestureEventListeners(PolymerElement) {
         return {
             label: String,
             icon: String,
+
+            /**
+            * Option on where to add the icon on the label:
+            * left, right
+            */
+            alignIcon: {
+                type: String,
+                value: 'left'
+            },
 
             expandIcon: {
                 type: Boolean,
@@ -77,7 +103,9 @@ class GfsDropDownMenu extends GestureEventListeners(PolymerElement) {
     }
 
     ready() {
-        super.ready()
+        super.ready();
+
+        this.left = this.alignIcon === 'left';
     }
 
     connectedCallback() {
